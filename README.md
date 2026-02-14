@@ -74,10 +74,8 @@ npm run lint
 ### KPVueJSWebApp
 VueJS Web  Application &amp; Docker Image
 
-
 ### Create VueJS Web App with yarn:
 yarn create vue@latest
-
 
 ### Create VueJS Web App
 npm create vue@latest
@@ -87,4 +85,9 @@ npm install
 npm run build
 npm run dev
 
+
+### KPVueJSWebApp : Literature : KP Vue.js
+http://localhost:5174/kpmyview
+https://www.w3schools.com/vue/vue_intro.php
+https://vuejs.org/tutorial/#step-1
 
