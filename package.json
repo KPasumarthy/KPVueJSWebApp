@@ -19,6 +19,7 @@
     "format": "oxfmt src/"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "pinia": "^3.0.4",
     "vue": "beta",
     "vue-router": "^5.0.1"
@@ -49,7 +50,15 @@
     "vite": "beta",
     "vite-plugin-vue-devtools": "^8.0.5",
     "vitest": "^4.0.18",
-    "vue-tsc": "^3.2.4"
+    "vue-tsc": "^3.2.4",
+    "cookie-parser": "^1.4.7",
+    "cookie-session": "^2.1.1",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "mssql": "^12.2.0",
+    "oracledb": "^6.10.0"
+
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
