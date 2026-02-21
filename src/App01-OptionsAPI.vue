@@ -1,93 +1,3 @@
-
-<script lang="ts">
-import { ref } from 'vue';
-
-export default {
-  //name: 'KPVueJSWebApp',
-  setup() {
-    // You can add any setup logic here if needed; We need to use ref to make the variables reactive in the setup function
-    const message = ref('KP : Welcome to KPVueJSWebApp!');
-    const name = ref('KPVueJSWebApp');
-    const binaryStatus = ref(true);
-    const status = ref('active');
-    const tasks = ref([
-        { id: 1, title: 'Task 1', completed: true },
-        { id: 2, title: 'Task 2', completed: false },
-        { id: 3, title: 'Task 3', completed: true },
-      ]);
-    const  toggleBinaryStatus = () => {
-      binaryStatus.value = !binaryStatus.value
-    };
-
-    const toggleStatus = () => {
-      if (status.value === 'active') {
-        status.value = 'pending'
-      } else if (status.value === 'pending') {
-        status.value = 'inactive'
-      } else {
-        status.value = 'active'
-      }
-    };
-
-    return {
-      message,
-      name,
-      binaryStatus,
-      status,
-      tasks,
-      toggleBinaryStatus,
-      toggleStatus
-    }
-}}
-</script>
-
-<template>
-  <div id="app">
-    <h1>Welcome to KPVueJSWebApp</h1>
-    <p>This is the default main application component for the Vue.js project.</p>
-    <p>You can modify this component to add your own content and functionality.</p>
-    <br />
-    <br />
-    <h1>{{ name }}</h1>
-    <br />
-    <h3>Status Binary :</h3>
-    <p v-if="binaryStatus === true">User is active</p>
-    <p v-else>User is inactive</p>
-    <br />
-    <h3>Status :</h3>
-    <p v-if="status === 'active'">User is active</p>
-    <p v-else-if="status === 'pending'">User is pending</p>
-    <p v-else>User is inactive</p>
-    <br />
-    <h3>Tasks:</h3>
-    <ul>
-      <li v-for="task in tasks" :key="task.id">
-        <span :style="{ textDecoration: task.completed ? 'line-through' : 'none' }">
-          {{ task.title }}
-        </span>
-      </li>
-    </ul>
-    <br />
-    <h3>Status Binary:</h3>
-    <button v-on:click="toggleBinaryStatus">Toggle Binary Status</button>
-    <br />
-    <br />
-    <h3>Status :</h3>
-    <button @click="toggleStatus">Toggle Status</button>
-    <br />
-    <br />
-    <h3>Click Links:</h3>
-    <a href="https://vuejs.org" target="_blank">Learn Vue.js</a>
-    <a href="https://www.youtube.com/watch?v=VeNfHj6MhgA&t=1398s" target="_blank">Click link to Crash Course Vue.js</a>
-
- </div>
-</template>
-
-<!-- KP : KP : App01-OptionsAPI.vue is the Default main application component for
-      This is a Vue.js component that serves as the main application component for a Vue.js project.
-      It includes data properties such as name, binaryStatus, status, tasks, and link.
-      The component also has methods to toggle the binaryStatus and status.
-      The template section displays the name, status, tasks, and links, and includes buttons to toggle the statuses.
 <script lang="ts">
 export default {
   name: 'App',
@@ -156,10 +66,7 @@ export default {
     <a href="https://www.youtube.com/watch?v=VeNfHj6MhgA&t=1398s" target="_blank">Click link to Crash Course Vue.js</a>
     <a v-bind:href="link">Crash Course Vue.js</a>
   </div>
-</template> -->
-
-
-
+</template>
 
 <!-- KP : App00.vue is the Default main application component for
     this Vue.js project. It serves as the root component that is
