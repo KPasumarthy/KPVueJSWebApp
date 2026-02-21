@@ -28,7 +28,27 @@ const toggleStatus = () => {
   } else {
     status.value = 'active'
   }
+};
+
+/// Add Task
+// const addTask = () => {
+//   if (newTask.value.trim() !== '') {
+//     tasks.value.push(newTask.value);
+//     newTask.value = '';
+//   }
+// }
+const addTask = () => {
+  if (newTask.value.trim() !== '') {
+    tasks.value.push({ id: tasks.value.length + 1, title: newTask.value, completed: false });
+    newTask.value = '';
+  }
 }
+/// Delete Task
+const deleteTask = (index) => {
+    tasks.value.splice(index, 1 );
+
+  }
+
 </script>
 
 <template>
@@ -52,26 +72,47 @@ const toggleStatus = () => {
     <br />
     <h3>Vue Form:</h3>
     <form @submit.prevent="toggleStatus">
-      <label for="newTask">Add Task:</label>
-      <input type="text" id="newTask" name="newTask" v-model="newTask" />
-      <br/>
       <label for="status">Select Status:</label>
       <select id="status" v-model="status">
         <option value="active">Active</option>
         <option value="pending">Pending</option>
         <option value="inactive">Inactive</option>
       </select>
-      <button type="submit">Update Status</button>
+      <button type="submit">Submit</button>
+    </form>
+    <form @submit.prevent="addTask">
+      <label for="newTask">Add Task:</label>
+      <input type="text" id="newTask" name="newTask" v-model="newTask" />
+      <br/>
+      <button type="submit">Submit</button>
     </form>
     <br />
-    <h3>Tasks:</h3>
+    <h3>Tasks Added :</h3>
     <ul>
       <li v-for="task in tasks" :key="task.id">
-        <span :style="{ textDecoration: task.completed ? 'line-through' : 'none' }">
-          {{ task.title }}
+        <!-- <span :style="{ textDecoration: task.completed ? 'line-through' : 'none' }">
+          {{ task }}
+        </span> -->
+        <span :style="{}">
+          {{ task }}
         </span>
       </li>
     </ul>
+    <br />
+    <br />
+    <h3>Tasks Deleted :</h3>
+    <ul>
+      <li v-for="(task, index) in tasks" :key="task.id">
+        <!-- <span :style="{ textDecoration: task.completed ? 'line-through' : 'none' }">
+          {{ task }}
+        </span> -->
+        <span :style="{}">
+          {{ task }}
+        </span>
+        <button @click="deleteTask(index)">Delete</button>
+      </li>
+    </ul>
+    <br />
     <br />
     <h3>Status Binary:</h3>
     <button v-on:click="toggleBinaryStatus">Toggle Binary Status</button>
