@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 // // You can add any setup logic here if needed; We need to use ref to make the variables reactive in the setup function.
 // // When we use ref, we can access the value of the variable using .value.
 // // This allows us to create reactive variables that can be used in the template and will automatically update the view when their values change.
@@ -15,7 +15,7 @@ const tasks = ref([
 const toggleBinaryStatus = () => {
   binaryStatus.value = !binaryStatus.value
 }
-const newTask = ref('React Forms : Text Input');
+const newTask = ref('React Forms : Text Input')
 
 // // You can add any setup logic here if needed; We need to use ref to make the variables reactive in the setup function.
 // // When we use ref, we can access the value of the variable using .value.
@@ -28,7 +28,7 @@ const toggleStatus = () => {
   } else {
     status.value = 'active'
   }
-};
+}
 
 /// Add Task
 // const addTask = () => {
@@ -39,16 +39,47 @@ const toggleStatus = () => {
 // }
 const addTask = () => {
   if (newTask.value.trim() !== '') {
-    tasks.value.push({ id: tasks.value.length + 1, title: newTask.value, completed: false });
-    newTask.value = '';
+    tasks.value.push({ id: tasks.value.length + 1, title: newTask.value, completed: false })
+    newTask.value = ''
   }
 }
+
 /// Delete Task
-const deleteTask = (index) => {
-    tasks.value.splice(index, 1 );
+const deleteTask = (index: number) => {
+  tasks.value.splice(index, 1)
+}
 
+/// onMounted Lifecycle Hook
+onMounted(async () => {
+  try {
+    // // Simulate an API call or any asynchronous operation
+    // await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // await fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log('KP : Data has been fetched successfully:', data)
+    //     tasks.value = data.map((task: { id: number; title: string; completed: boolean }) => ({
+    //       id: task.id,
+    //       title: task.title,
+    //       completed: task.completed,
+    //     }))
+    //   })
+
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+    const data = await response.json();
+    console.log('KP : Data has been fetched successfully:', data);
+    tasks.value = data.map((task: { id: number; title: string; completed: boolean }) => ({
+      id: task.id,
+      title: task.title,
+      completed: task.completed,
+    }))
+    console.log('KP : Data has been fetched successfully.')
+  } catch (error) {
+    console.error('KP : An error occurred while fetching data:', error)
   }
-
+  console.log('KP : Component has been mounted to the DOM.')
+})
 </script>
 
 <template>
@@ -83,7 +114,7 @@ const deleteTask = (index) => {
     <form @submit.prevent="addTask">
       <label for="newTask">Add Task:</label>
       <input type="text" id="newTask" name="newTask" v-model="newTask" />
-      <br/>
+      <br />
       <button type="submit">Submit</button>
     </form>
     <br />
@@ -129,6 +160,18 @@ const deleteTask = (index) => {
     >
   </div>
 </template>
+
+<!-- KP : Vue.js : Lifecycle Methods
+  onBeforeMount: This lifecycle hook is called right before the component is mounted to the DOM. It is a good place to perform any setup that needs to happen before the component is rendered.
+  onMounted: This lifecycle hook is called after the component has been mounted to the DOM. It is a good place to perform any setup that needs to happen after the component is rendered, such as fetching data from an API or initializing third-party libraries.
+  onBeforeUpdate: This lifecycle hook is called right before the component is updated. It is a good place to perform any setup that needs to happen before the component is updated, such as saving the current state of the component or performing any cleanup.
+  onUpdated: This lifecycle hook is called after the component has been updated. It is a good place to perform any setup that needs to happen after the component is updated, such as fetching new data from an API or updating the UI based on the new state of the component.
+  onBeforeUnmount: This lifecycle hook is called right before the component is unmounted from the DOM. It is a good place to perform any cleanup that needs to happen before the component is removed from the DOM, such as removing event listeners or canceling any ongoing API requests.
+  onUnmounted: This lifecycle hook is called after the component has been unmounted from the DOM. It is a good place to perform any cleanup that needs to happen after the component is removed from the DOM, such as clearing any timers or intervals that were set up in the component.
+  onActivated: This lifecycle hook is called when a component is activated. It is a good place to perform any setup that needs to happen when the component becomes active, such as fetching data or initializing third-party libraries.
+  onDeactivated: This lifecycle hook is called when a component is deactivated. It is a good place to perform any cleanup that needs to happen when the component becomes inactive, such as removing event listeners or canceling any ongoing API requests.
+  onErrorCaptured: This lifecycle hook is called when an error is captured from a child component. It is a good place to perform any error handling that needs to happen when an error occurs in a child component, such as logging the error or displaying an error message to the user.
+-->
 
 <!-- KP : KP : App01-CompositionAPI.vue is the Default main application component for
       This is a Vue.js component that serves as the main application component for a Vue.js project.
