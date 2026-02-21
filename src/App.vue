@@ -5,7 +5,9 @@ import { ref } from 'vue';
 export default {
   //name: 'KPVueJSWebApp',
   setup() {
-    // You can add any setup logic here if needed; We need to use ref to make the variables reactive in the setup function
+    // // You can add any setup logic here if needed; We need to use ref to make the variables reactive in the setup function.
+    // // When we use ref, we can access the value of the variable using .value.
+    // // This allows us to create reactive variables that can be used in the template and will automatically update the view when their values change.
     const message = ref('KP : Welcome to KPVueJSWebApp!');
     const name = ref('KPVueJSWebApp');
     const binaryStatus = ref(true);
@@ -19,6 +21,9 @@ export default {
       binaryStatus.value = !binaryStatus.value
     };
 
+    // // You can add any setup logic here if needed; We need to use ref to make the variables reactive in the setup function.
+    // // When we use ref, we can access the value of the variable using .value.
+    // // This allows us to create reactive variables that can be used in the template and will automatically update the view when their values change.
     const toggleStatus = () => {
       if (status.value === 'active') {
         status.value = 'pending'
