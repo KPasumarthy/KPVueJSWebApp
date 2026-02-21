@@ -14,6 +14,20 @@ export default {
       link: 'https://www.youtube.com/watch?v=VeNfHj6MhgA&t=1398s',
     }
   },
+  methods: {
+    toggleBinaryStatus() {
+      this.binaryStatus = !this.binaryStatus
+    },
+    toggleStatus() {
+      if (this.status === 'active') {
+        this.status = 'pending'
+      } else if (this.status === 'pending') {
+        this.status = 'inactive'
+      } else {
+        this.status = 'active'
+      }
+    },
+  },
 }
 </script>
 
@@ -21,7 +35,7 @@ export default {
   <div id="app">
     <h1>{{ name }}</h1>
     <br />
-    <h3>Status :</h3>
+    <h3>Status Binary :</h3>
     <p v-if="binaryStatus === true">User is active</p>
     <p v-else>User is inactive</p>
     <br />
@@ -38,10 +52,18 @@ export default {
         </span>
       </li>
     </ul>
+    <br />
+    <h3>Status Binary:</h3>
+    <button v-on:click="toggleBinaryStatus">Toggle Binary Status</button>
+    <br />
+    <br />
+    <h3>Status :</h3>
+    <button @click="toggleStatus">Toggle Status</button>
+    <br />
+    <br />
+    <h3>Click Links:</h3>
     <a href="https://vuejs.org" target="_blank">Learn Vue.js</a>
-    <a href="https://www.youtube.com/watch?v=VeNfHj6MhgA&t=1398s" target="_blank"
-      >Crash Course Vue.js</a
-    >
+    <a href="https://www.youtube.com/watch?v=VeNfHj6MhgA&t=1398s" target="_blank">Click link to Crash Course Vue.js</a>
     <a v-bind:href="link">Crash Course Vue.js</a>
   </div>
 </template>
