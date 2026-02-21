@@ -12,6 +12,10 @@ export default defineConfig({
     vueJsx(),
     vueDevTools(),
   ],
+  //// KP : Vite's default port is 5173, but you can change it to any port you prefer. In this case, we set it to 5173 explicitly.
+  server:{
+    port: 5173
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

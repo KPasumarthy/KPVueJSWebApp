@@ -91,9 +91,11 @@ npm run dev
 
 ### KPVueJSWebApp : Literature : KP Vue.js
 
+http://localhost:5173/
 http://localhost:5174/kpmyview
 https://www.w3schools.com/vue/vue_intro.php
 https://vuejs.org/tutorial/#step-1
+https://www.youtube.com/watch?v=VeNfHj6MhgA&t=1398s
 
 ### KPVueJSWebApp : Literature : KP Vue.js : Screenshots
 
