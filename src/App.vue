@@ -15,6 +15,7 @@ const tasks = ref([
 const toggleBinaryStatus = () => {
   binaryStatus.value = !binaryStatus.value
 }
+const newTask = ref('React Forms : Text Input');
 
 // // You can add any setup logic here if needed; We need to use ref to make the variables reactive in the setup function.
 // // When we use ref, we can access the value of the variable using .value.
@@ -47,6 +48,21 @@ const toggleStatus = () => {
     <p v-if="status === 'active'">User is active</p>
     <p v-else-if="status === 'pending'">User is pending</p>
     <p v-else>User is inactive</p>
+    <br />
+    <br />
+    <h3>Vue Form:</h3>
+    <form @submit.prevent="toggleStatus">
+      <label for="newTask">Add Task:</label>
+      <input type="text" id="newTask" name="newTask" v-model="newTask" />
+      <br/>
+      <label for="status">Select Status:</label>
+      <select id="status" v-model="status">
+        <option value="active">Active</option>
+        <option value="pending">Pending</option>
+        <option value="inactive">Inactive</option>
+      </select>
+      <button type="submit">Update Status</button>
+    </form>
     <br />
     <h3>Tasks:</h3>
     <ul>
