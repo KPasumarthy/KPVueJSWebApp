@@ -25,6 +25,14 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/KPMyView.vue'),
     },
+    {
+      path: '/kpmyfirstvuepage',
+      name: 'kpmyfirstvuepage',
+      // route level code-splitting
+      // this generates a separate chunk (KPMyView.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/KPMyFirstVuePage.vue'),
+    },
   ],
 })
 

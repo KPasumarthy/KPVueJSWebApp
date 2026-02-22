@@ -96,6 +96,7 @@ http://localhost:5174/kpmyview
 https://www.w3schools.com/vue/vue_intro.php
 https://vuejs.org/tutorial/#step-1
 https://www.youtube.com/watch?v=VeNfHj6MhgA&t=1398s
+https://v2.tailwindcss.com/docs/guides/vue-3-vite
 
 ### KPVueJSWebApp : Literature : KP Vue.js : Screenshots
 
