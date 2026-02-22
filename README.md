@@ -97,6 +97,8 @@ https://www.w3schools.com/vue/vue_intro.php
 https://vuejs.org/tutorial/#step-1
 https://www.youtube.com/watch?v=VeNfHj6MhgA&t=1398s
 https://v2.tailwindcss.com/docs/guides/vue-3-vite
+https://github.com/bradtraversy/vue-crash-2024
+https://github.com/bradtraversy/vue-crash-2024.git
 
 ### KPVueJSWebApp : Literature : KP Vue.js : Screenshots
 
