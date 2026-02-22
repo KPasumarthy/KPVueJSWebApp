@@ -1,18 +1,3 @@
-<template>
-  <div id="app">
-    <h1>Welcome to KPVueJSWebApp</h1>
-    <p>This is the default main application component for the Vue.js project.</p>
-    <p>You can modify this component to add your own content and functionality.</p>
-  </div>
-</template>
-
-<!-- KP : App01-VueOnMount-FetchAPI.vue is the Default main application component for
-      This is a Vue.js component that serves as the main application component for a Vue.js project.
-      It includes data properties such as name, binaryStatus, status, tasks, and link.
-      The component also has methods to toggle the binaryStatus and status, add tasks, and delete tasks.
-      The onMounted lifecycle hook is used to fetch data from an API when the component is mounted.
-      The template section displays the name, status, tasks, and links, and includes buttons to toggle the statuses and manage tasks.
-
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 // // You can add any setup logic here if needed; We need to use ref to make the variables reactive in the setup function.
@@ -136,6 +121,9 @@ onMounted(async () => {
     <h3>Tasks Added :</h3>
     <ul>
       <li v-for="task in tasks" :key="task.id">
+        <!-- <span :style="{ textDecoration: task.completed ? 'line-through' : 'none' }">
+          {{ task }}
+        </span> -->
         <span :style="{}">
           {{ task }}
         </span>
@@ -146,6 +134,9 @@ onMounted(async () => {
     <h3>Tasks Delete :</h3>
     <ul>
       <li v-for="(task, index) in tasks" :key="task.id">
+        <!-- <span :style="{ textDecoration: task.completed ? 'line-through' : 'none' }">
+          {{ task }}
+        </span> -->
         <span :style="{}">
           {{ task }}
         </span>
@@ -168,7 +159,7 @@ onMounted(async () => {
       >Click link to Crash Course Vue.js</a
     >
   </div>
-</template> -->
+</template>
 
 <!-- KP : Vue.js : Lifecycle Methods
   onBeforeMount: This lifecycle hook is called right before the component is mounted to the DOM. It is a good place to perform any setup that needs to happen before the component is rendered.
